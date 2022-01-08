@@ -25,7 +25,9 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 // launch modal form
 function launchModal() {
+  //display modal 
   modalbg.style.display = "block";
+  //none display unvalid msg
   unvalid_first.style.display="none";
   unvalid_family.style.display="none";
   unvalid_quantity.style.display="none";
@@ -43,6 +45,8 @@ function closemodal()
 
 // validity check of the form on submit
 function validate(){
+
+//get the input form the form
   var firstname=document.forms["reserve"]["first"];
   var familyname=document.forms["reserve"]["last"];
   var e_mail=document.forms["reserve"]["email"];
@@ -51,6 +55,7 @@ function validate(){
   var radio=document.reserve.location;
   var cond=document.reserve.checkbox1;
 
+//general test of the cheking form ( name email etc)
 
   if ((checkfirst(firstname) & checkfam (familyname) & checkemail(e_mail) & checkbirth(birth_date) & checkquant(quantity) & checkradio(radio) & checkcond(cond))==false)
   {
@@ -62,7 +67,7 @@ function validate(){
     return true;
   }
 }
-
+//check of the fisrtname
 function checkfirst(arg)
 {
   if (arg.value.length<2)
@@ -76,7 +81,7 @@ function checkfirst(arg)
     return true
   }
 }
-
+//check of the family name
 function checkfam(arg)
 {
   if (arg.value.length<2)
@@ -91,7 +96,7 @@ function checkfam(arg)
     return true
   }
 }
-
+//check the quantity of tournament
 function checkquant(arg)
 {
   if (arg.value=="")
@@ -108,6 +113,7 @@ function checkquant(arg)
     return true;
    }
 }
+//check email if the form
 function checkemail(arg){
 
   var reg=/^(([^<>()[]\.,;:s@]+(.[^<>()[]\.,;:s@]+)*)|(.+))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/;
@@ -123,6 +129,8 @@ function checkemail(arg){
 
    }
 }
+
+//check of the date of birth
 function checkbirth(arg){
 
   var regdate=/[0-9]{4}[-](0[1-9]|1[0-2])[-]([0-2]{1}[0-9]{1}|3[0-1]{1})|([0-2]{1}[0-9]{1}|3[0-1]{1})[-](0[1-9]|1[0-2])[-][0-9]{4}/;
@@ -137,7 +145,7 @@ function checkbirth(arg){
     return true;
   }
 }
-
+//check if the a radio button is checked
 function checkradio(arg)
 {
   var detect=false;
@@ -159,6 +167,7 @@ else
   return true;
 }
 }
+//check the general condition is used
 function checkcond(arg)
 {
   if (arg.checked==false){
