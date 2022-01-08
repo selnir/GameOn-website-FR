@@ -73,6 +73,7 @@
                   minlength="2"
                 /><br>
               </div>
+              <div class="unvalid_first">Veuillez entrer 2 caractères ou plus pour le champ du nom.</div>
               <div
                 class="formData">
                 <label for="last">Nom</label><br>
@@ -83,6 +84,8 @@
                   name="last"
                 /><br>
               </div>
+              <div class="unvalid_family">Veuillez entrer 2 caractères ou plus pour le champ du nom.</div>
+
               <div
                 class="formData">
                 <label for="email">E-mail</label><br>
@@ -93,6 +96,8 @@
                   name="email"
                 /><br>
               </div>
+              <div class="unvalid_email">Vous devez entrer votre email.</div>
+
               <div
                 class="formData">
                 <label for="birthdate">Date de naissance</label><br>
@@ -103,11 +108,15 @@
                   name="birthdate"
                 /><br>
               </div>
+              <div class="unvalid_birth">Vous devez entrer votre date de naissance.</div>
+
               <div
                 class="formData">
                 <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
               </div>
+              <div class="unvalid_quantity">Veuillez entrer le nombre de tournois auxquels vous avez participe.</div>
+
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
               <div
                 class="formData">
@@ -178,6 +187,7 @@
                   Portland</label
                 >
               </div>
+              <div class="unvalid_radio">Vous devez choisir une option</div>
 
               <div
                 class="formData">
@@ -187,7 +197,7 @@
                   id="checkbox1"
                   
                 />
-                <label class="checkbox2-label" for="checkbox1" required>
+                <label class="checkbox2-label" for="checkbox1" >
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
@@ -199,6 +209,7 @@
                 </label>
                 <br>
               </div>
+              <div class="unvalid_cond">Vous devez vérifier que vous acceptez les termes et conditions. </div>
               <input
                 class="btn-submit"
                 type="submit"
