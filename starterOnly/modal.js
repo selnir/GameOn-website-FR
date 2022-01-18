@@ -18,6 +18,14 @@ const unvalid_email= document.querySelector(".unvalid_email");
 const unvalid_birth= document.querySelector(".unvalid_birth");
 const unvalid_radio= document.querySelector(".unvalid_radio");
 const unvalid_cond= document.querySelector(".unvalid_cond");
+//get the input form the form
+var firstname=document.forms["reserve"].elements["first"];
+var familyname=document.forms["reserve"].elements["last"];
+var e_mail=document.forms["reserve"].elements["email"];
+var birth_date=document.forms["reserve"].elements["birthdate"];
+var quantity=document.forms["reserve"].elements["quantity"];
+var radio=document.reserve.location;
+var cond=document.reserve.checkbox1;
 
 
 // launch modal event
@@ -35,34 +43,40 @@ function launchModal() {
   unvalid_birth.style.display="none";
   unvalid_radio.style.display="none";
   unvalid_cond.style.display="none";
-
 }
 // close the modal form
 function closemodal()
 {
   modalbg.style.display = "none";
+  firstname.value="";
+  familyname.value="";
+  e_mail.value="";
+  birth_date.value="";
+  quantity.value="";
+  radio.reset;
+  for(i=0;i<6;i++){
+   radio[i].checked=false;
+    
+  }
+  cond.checked=false;
 }
 
 // validity check of the form on submit
 function validate(){
 
-//get the input form the form
-  var firstname=document.forms["reserve"]["first"];
-  var familyname=document.forms["reserve"]["last"];
-  var e_mail=document.forms["reserve"]["email"];
-  var birth_date=document.forms["reserve"]["birthdate"];
-  var quantity=document.forms["reserve"]["quantity"];
-  var radio=document.reserve.location;
-  var cond=document.reserve.checkbox1;
+
 
 //general test of the cheking form ( name email etc)
 
   if ((checkfirst(firstname) & checkfam (familyname) & checkemail(e_mail) & checkbirth(birth_date) & checkquant(quantity) & checkradio(radio) & checkcond(cond))==false)
   {
+
+
     return false;
   }
   else
   {
+
     alert("Merci ! Votre réservation a été reçue.");
     return true;
   }
@@ -78,6 +92,7 @@ function checkfirst(arg)
   else ((arg.value.length>2))
   {    
     unvalid_first.style.display="none";
+
     return true
   }
 }
@@ -182,4 +197,5 @@ function checkcond(arg)
 
   }
 
+  //recuperation focus-within et recherche de la bonne fonction
 }

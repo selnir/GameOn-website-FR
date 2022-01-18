@@ -63,6 +63,8 @@
                 <label for="first">Prénom</label><br />
                 <input
                   class="text-control"
+                  onfocus="checkfirst(first)"
+                  onfocusout="checkfirst(first)"
                   type="text"
                   id="first"
                   name="first"
@@ -76,6 +78,8 @@
                 <label for="last">Nom</label><br />
                 <input
                   class="text-control"
+                  onfocus="checkfam(last)"
+                  onfocusout="checkfam(last)"
                   type="text"
                   id="last"
                   name="last"
@@ -89,6 +93,8 @@
                 <label for="email">E-mail</label><br />
                 <input
                   class="text-control"
+                  onfocus="checkemail(email)"
+                  onfocusout="checkemail(email)"
                   type="email"
                   id="email"
                   name="email"
@@ -100,6 +106,8 @@
                 <label for="birthdate">Date de naissance</label><br />
                 <input
                   class="text-control"
+                  onfocus="checkbirth(birthdate)"
+                  onfocusout="checkbirth(birthdate)"
                   type="date"
                   id="birthdate"
                   name="birthdate"
@@ -117,6 +125,8 @@
                 <input
                   type="number"
                   class="text-control"
+                  onfocus="checkquant(quantity)"
+                  onfocusout="checkquant(quantity)"
                   id="quantity"
                   name="quantity"
                   min="0"
