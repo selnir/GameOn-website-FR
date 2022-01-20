@@ -543,3 +543,14 @@ footer {
 input:focus-within {
   border: 1px solid red;
 }
+
+.Msg-Confirm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 500px;
+}
+.hero-text:nth-child(1) {
+  text-align: center;
+}

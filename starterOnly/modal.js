@@ -11,6 +11,9 @@ function editNav() {
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
+const form=document.querySelector("form");
+const confirmBtn=document.querySelectorAll(".btn-submit");
+const confirmMsg=document.querySelectorAll(".hero-text");
 const unvalid_first= document.querySelector(".unvalid_first");
 const unvalid_family= document.querySelector(".unvalid_family");
 const unvalid_quantity= document.querySelector(".unvalid_quantity");
@@ -27,14 +30,20 @@ var quantity=document.forms["reserve"].elements["quantity"];
 var radio=document.reserve.location;
 var cond=document.reserve.checkbox1;
 
-
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+confirmBtn[1].addEventListener("click",CloseMsgConf);
+function CloseMsgConf()
+{
+  document.forms["reserve"].submit();
+}
 
 // launch modal form
 function launchModal() {
   //display modal 
   modalbg.style.display = "block";
+  confirmBtn[1].style.display="none";
+  confirmMsg[1].style.display="none";
   //none display unvalid msg
   unvalid_first.style.display="none";
   unvalid_family.style.display="none";
@@ -48,38 +57,39 @@ function launchModal() {
 function closemodal()
 {
   modalbg.style.display = "none";
-  firstname.value="";
-  familyname.value="";
-  e_mail.value="";
-  birth_date.value="";
-  quantity.value="";
-  radio.reset;
-  for(i=0;i<6;i++){
-   radio[i].checked=false;
+  // firstname.value="";
+  // familyname.value="";
+  // e_mail.value="";
+  // birth_date.value="";
+  // quantity.value="";
+  // radio.reset;
+  // for(i=0;i<6;i++){
+  //  radio[i].checked=false;
     
-  }
-  cond.checked=false;
+  // }
+  // cond.checked=false;
+  document.forms["reserve"].reset();
+
 }
 
 // validity check of the form on submit
-function validate(){
-
-
+function validate(btn){
 
 //general test of the cheking form ( name email etc)
 
   if ((checkfirst(firstname) & checkfam (familyname) & checkemail(e_mail) & checkbirth(birth_date) & checkquant(quantity) & checkradio(radio) & checkcond(cond))==false)
   {
-
-
     return false;
   }
   else
   {
-
-    alert("Merci ! Votre réservation a été reçue.");
-    return true;
-  }
+    form.style.display="none";
+    confirmBtn[1].style.display="block";
+    confirmMsg[1].style.display="block";
+      return false;
+    
+    
+      }
 }
 //check of the fisrtname
 function checkfirst(arg)
@@ -197,5 +207,4 @@ function checkcond(arg)
 
   }
 
-  //recuperation focus-within et recherche de la bonne fonction
 }
